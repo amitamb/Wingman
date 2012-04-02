@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 
+  acts_as_taggable_on :knows, :needs
+
   def self.from_omniauth(auth)
     find_by_provider_and_uid(auth["provider"], auth["uid"]) || create_with_omniauth(auth)
   end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120402142517) do
+ActiveRecord::Schema.define(:version => 20120402143216) do
 
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"
@@ -35,8 +35,9 @@ ActiveRecord::Schema.define(:version => 20120402142517) do
     t.string   "uid"
     t.string   "name"
     t.string   "email"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.boolean  "is_setup",   :default => false
   end
 
 end
