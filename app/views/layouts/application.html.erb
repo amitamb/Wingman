@@ -10,7 +10,7 @@
   <div class="navbar">
 			<div class="navbar-inner">
 				<div class="container">
-					<a class="brand" href="/">Castbin</a>
+					<a class="brand" href="/">Wingman</a>
 					<ul class="nav">
 						<li class="active">
 							<a href="/">Home</a>
@@ -20,11 +20,21 @@
 					<form class="navbar-search pull-left" action="">
 						<input type="text" class="search-query span2" placeholder="Search">
 					</form>
+          -->
 
 					<ul class="nav pull-right">
 						<li><a href="#">Link</a></li>
 						<li class="divider-vertical"></li>
-						<li class="dropdown">
+            <% if current_user %>
+              <li>
+              <%= link_to "Sign Out", signout_path %>
+              </li>
+            <% else %>
+              <li>
+              <%= link_to "Sign in with Facebook", "/auth/facebook" %>
+              </li>
+            <% end %>
+						<li class="dropdown" style='display:none;'>
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
 							<ul class="dropdown-menu">
 								<li><a href="#">Action</a></li>
@@ -35,12 +45,36 @@
 							</ul>
 						</li>
 					</ul>
-					-->
 				</div>
 			</div>
 		</div>
   <div class="container">
     <%= yield %>
   </div>
+  <div class="container">
+		<div class="row">
+			<div class="span12">
+				<hr />
+			</div>
+		</div>
+		<div class="row">
+			<div class="span2 offset1">
+				<a href="/">Home</a><br />
+				<a href="http://amitamb.posterous.com/" >Blog</a><br />
+			</div>
+			<div class="span2 offset1">
+				<a href="#">Source</a><br />
+				<a href="#">Video</a><br />
+			</div>
+			<div class="span2 offset1">
+				<a href="mailto:amitamb@gmail.com">Contact</a><br />
+				<a href="#">Other</a>
+			</div>
+			<div class="span2 offset1" style="text-align:right;">
+				Copyright &copy; Wingman<br />
+			</div>
+		</div>
+		<br />
+	</div>
 </body>
 </html>
