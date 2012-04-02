@@ -43,3 +43,5 @@ gem 'acts-as-taggable-on', '~> 2.2.2'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
+
+gem 'formtastic'
