@@ -67,7 +67,7 @@
             -->
             <li class="divider"></li>
             <li>
-              <a id="nav-news-feed" href="/">News Feed</a>
+              <a id="nav-home" href="/">Home</a>
             </li>
             <li>
               <a id="nav-wingmen" href="/wingmen">Wingmen</a>
@@ -90,6 +90,8 @@
           <%= yield %>
         </div>
         <div class="span2">
+          I am thinking of showing list of recently signed-up and logged in users here
+          <hr />
           <%= yield(:right_panel) if content_for?(:right_panel) %>
         </div>
       </div>
