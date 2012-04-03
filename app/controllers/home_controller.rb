@@ -11,5 +11,6 @@ class HomeController < ApplicationController
   
   def setup
     # setup user for skills and interests
+    @person = current_user.build_person
   end
 end

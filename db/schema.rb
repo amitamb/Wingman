@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120402143216) do
+ActiveRecord::Schema.define(:version => 20120402200612) do
+
+  create_table "people", :force => true do |t|
+    t.string   "location"
+    t.string   "short_desc"
+    t.text     "desc"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"

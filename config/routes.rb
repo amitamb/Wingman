@@ -1,4 +1,6 @@
 Wingman::Application.routes.draw do
+  resources :people
+
   root :to => "home#index"
   get "setup" => "home#setup", :as => :setup
   
