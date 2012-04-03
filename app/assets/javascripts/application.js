@@ -34,7 +34,6 @@ $(function(){
   });
   $(".choice").on("click", "input.tag_input", function(){
     var $this = $(this);
-    document.title = $this.parents("li") + " " + Number(new Date());
     $this.parents("li").toggleClass("selected");
   });
 

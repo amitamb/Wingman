@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120402200612) do
+ActiveRecord::Schema.define(:version => 20120403170923) do
 
   create_table "people", :force => true do |t|
     t.string   "location"
@@ -47,6 +47,8 @@ ActiveRecord::Schema.define(:version => 20120402200612) do
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
     t.boolean  "is_setup",   :default => false
+    t.string   "image"
+    t.string   "location"
   end
 
 end

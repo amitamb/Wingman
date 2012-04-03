@@ -46,3 +46,5 @@ gem 'omniauth-google-oauth2'
 
 #gem 'formtastic'
 gem 'formtastic-bootstrap'
+
+gem 'rinku'

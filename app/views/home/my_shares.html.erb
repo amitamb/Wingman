@@ -1,3 +1,5 @@
+<% @nav_id = "nav-my-shares" %>
+
 <% content_for :left_panel do %>
   
 <% end %>
@@ -9,10 +11,8 @@
 
 <div class="row">
   <div class="span7">
-    <h3><%= @person.name %></h3>
+    <h3>Sharing History</h3>
     <hr />
-    <%= render @person %>
+
   </div>
 </div>
-
-<% @nav_id = "nav-show-person" %>

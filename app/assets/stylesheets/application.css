@@ -15,36 +15,6 @@
 */
 
 
-.tags_list {
-  list-style:none;
-  margin:0;
-}
-
-.tags_list li {
-  display:inline-block;
-  padding:0px 8px;
-  background-color:#D4D4D4;
-  margin:7px 10px;
-  margin-left:0;
-  border:1px outset #EEE;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  cursor:Pointer;
-}
-
-.tags_list li.selected {
-  display:inline-block;
-  background-color:#FFF;
-  margin:7px 10px;
-  margin-left:0;
-  border:1px dotted #EEE;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  cursor:Pointer;
-  font-size:150% !important;
-}
 
 .tags_list i {
   margin:2px 0;
@@ -64,4 +34,35 @@ fieldset.actions li {
 }
 
 fieldset.actions li {
+}
+
+.profile-img {
+  padding-right:10px;
+  padding-bottom:10px;
+  min-height:100px;
+}
+
+.clear {
+  clear:both;
+}
+
+table.person {
+  width:100%;
+}
+
+table.person td {
+  padding-top:20px;
+  vertical-align:top;
+}
+
+table.person td.attribute_name {
+  text-align:right;
+  padding-right:10px;
+  font-weight:bold;
+  width:120px;
+  margin-right:20px;
+}
+
+table.person td.attribute_value {
+  padding-top:20px;
 }

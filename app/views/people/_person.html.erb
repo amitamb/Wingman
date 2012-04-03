@@ -1,0 +1,29 @@
+<table class="person">
+  <tbody>
+    <tr>
+      <td class="attribute_name">Name:</td>
+      <td class="attribute_value"><%= person.name %> <br /><i>(<%= person.short_desc %>)</i></td>
+    </tr>
+    <tr>
+      <td class="attribute_name">Location:</td>
+      <td class="attribute_value"><%= person.location %></td>
+    </tr>
+    <tr>
+      <td class="attribute_name">Full Biodata:</td>
+      <td class="attribute_value"><%=raw Rinku.auto_link(simple_format(person.desc), mode=:all, link_attr=nil, skip_tags=nil) %></td>
+    </tr>
+    <tr>
+      <td class="attribute_name">Needs help with:</td>
+      <td class="attribute_value"><%= person.know_list %></td>
+    </tr>
+    <tr>
+      <td class="attribute_name">Can help with:</td>
+      <td class="attribute_value"><%= person.need_list %></td>
+    </tr>
+  </tbody>
+</table>
+
+<br />
+<br />
+<br /><br />
+<br /><br />

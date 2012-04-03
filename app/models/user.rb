@@ -2,6 +2,10 @@ class User < ActiveRecord::Base
 
 
   has_one :person
+  
+  def image_large
+    self.image.gsub("type=square", "type=large")
+  end
 
   def self.from_omniauth(auth)
     find_by_provider_and_uid(auth["provider"], auth["uid"]) || create_with_omniauth(auth)

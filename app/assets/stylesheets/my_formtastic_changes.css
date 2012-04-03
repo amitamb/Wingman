@@ -17,9 +17,9 @@
   padding:0px;
 }
 
-.choices li {
+.choices li label {
   display:inline-block;
-  padding:2px 6px !important;
+  padding:5px 6px !important;
   background-color:#d3dDdD;
   margin:7px 10px !important;
   margin-left:0 !important;
@@ -30,7 +30,7 @@
   cursor:Pointer;
 }
 
-.choices li.selected {
+.choices li.selected label {
   display:inline-block;
   background-color:#EEEEDE;
   margin:7px 10px !important;
