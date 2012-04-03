@@ -12,6 +12,9 @@ class User < ActiveRecord::Base
       user.provider = auth["provider"]
       user.uid = auth["uid"]
       user.name = auth["info"]["name"]
+      # right now only need to support FB
+      user.image = auth["info"]["image"]
+      user.location = auth["info"]["location"]
       user.email = auth["info"]["email"] || auth["extra"]["user_hash"]["email"]
     end
   end

@@ -2,7 +2,9 @@ Wingman::Application.routes.draw do
   resources :people
 
   root :to => "home#index"
-  get "setup" => "home#setup", :as => :setup
+
+  get "wingmen" => "home#wingmen", :as => :wingmen
+  get "helping" => "home#helping", :as => :helping
   
   match "/auth/:provider/callback" => "sessions#create"
   match "/signout" => "sessions#destroy", :as => :signout

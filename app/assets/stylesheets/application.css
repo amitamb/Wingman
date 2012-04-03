@@ -10,6 +10,7 @@
  *
  *= require_self
  *= require formtastic-bootstrap
+ *= require my_formtastic_changes
  *= require_tree .
 */
 
@@ -21,7 +22,7 @@
 
 .tags_list li {
   display:inline-block;
-  padding:5px 8px;
+  padding:0px 8px;
   background-color:#D4D4D4;
   margin:7px 10px;
   margin-left:0;
@@ -30,6 +31,19 @@
   -moz-border-radius: 3px;
   border-radius: 3px;
   cursor:Pointer;
+}
+
+.tags_list li.selected {
+  display:inline-block;
+  background-color:#FFF;
+  margin:7px 10px;
+  margin-left:0;
+  border:1px dotted #EEE;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  cursor:Pointer;
+  font-size:150% !important;
 }
 
 .tags_list i {

@@ -1,16 +1,19 @@
 class HomeController < ApplicationController
   def index
     if current_user
-      if current_user.is_setup
+      if current_user.person.present?
         render "dashboard"
       else
-        redirect_to setup_url
+        redirect_to '/people/0/edit'
       end
     end
   end
   
-  def setup
-    # setup user for skills and interests
-    @person = current_user.build_person
+  def wingmen
+    
+  end
+  
+  def helping
+    
   end
 end

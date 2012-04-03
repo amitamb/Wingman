@@ -1,10 +1,60 @@
 .choices {
   
 }
-.choices ul {
-  
+.choices ul * {
+  margin:0;padding:0;border:0;display:inline;
 }
 
 .choices ul li label {
-  width:auto;
+  width:auto !important;
+}
+
+.choices ul li label {
+  
+}
+
+.formtastic .choices-group {
+  padding:0px;
+}
+
+.choices li {
+  display:inline-block;
+  padding:2px 6px !important;
+  background-color:#d3dDdD;
+  margin:7px 10px !important;
+  margin-left:0 !important;
+  border:1px outset #d8dDdD !important;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  cursor:Pointer;
+}
+
+.choices li.selected {
+  display:inline-block;
+  background-color:#EEEEDE;
+  margin:7px 10px !important;
+  margin-left:0 !important;
+  border:1px dotted #d8dDdD !important;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  cursor:Pointer;
+}
+
+.choices li  * {
+  cursor:Pointer;
+}
+
+.choices input {
+  display:none;
+}
+
+.formtastic input, .formtastic textarea {
+  padding:4px;
+}
+
+.formtastic .help-inline, .formtastic .help-block {
+  font-style:italic;
+  font-size:11px;
 }

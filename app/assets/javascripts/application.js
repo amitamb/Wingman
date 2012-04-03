@@ -16,6 +16,26 @@
 
 
 $(function(){
-  //$(".tag_input").css({ display : "none" });
-  //$(".tag_input")
+  $(function(){
+    $("#" + window.nav_id).parents("li").toggleClass("active");
+  });
+
+  $(".choice input.tag_input").each(function(){
+    var $this = $(this);
+    if ( $this.is(':checked') ) {
+      $this.parents("li").toggleClass("selected");
+      // css({ "background-color" : "White", "border-style" : "dotted" });
+    }
+    else
+    {
+      //$this.parents("li").toggleClass("selected");
+      //$this.parents("li").css({ "background-color" : "White", "border-style" : "dotted" });
+    }
+  });
+  $(".choice").on("click", "input.tag_input", function(){
+    var $this = $(this);
+    document.title = $this.parents("li") + " " + Number(new Date());
+    $this.parents("li").toggleClass("selected");
+  });
+
 });

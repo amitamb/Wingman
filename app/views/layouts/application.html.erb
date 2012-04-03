@@ -52,7 +52,46 @@
 			</div>
 		</div>
   <div class="container">
-    <%= yield %>
+    <% if content_for?(:left_panel) || content_for?(:right_panel) %>
+      <div class="row">
+        <div id="left-nav" class="span3" style="height:100%;">
+          <ul class="nav nav-list">
+            <!--
+            <li class="nav-header">
+              List header
+            </li>
+            -->
+            <li>
+              <a id="nav-news-feed" href="/">News Feed</a>
+            </li>
+            <li>
+              <a id="nav-wingmen" href="/wingmen">Wingmen</a>
+            </li>
+            <li>
+              <a id="nav-helping" href="/helping">Helping</a>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <!-- 0 means current user as id is ignored -->
+              <a id="nav-preferences" href="/people/0/edit">Preferences</a>
+            </li>
+            <%= yield(:left_panel) if content_for?(:left_panel) %>
+          </ul>
+          <script>
+            window.nav_id = <%=raw @nav_id.to_json %>;
+          </script>
+        </div>
+        <div class="span7" style="">
+          <%= yield %>
+        </div>
+        <div class="span2">
+          <%= yield(:right_panel) if content_for?(:right_panel) %>
+        </div>
+      </div>
+
+    <% else %>
+      <%= yield %>
+    <% end %>
   </div>
   <div class="container">
 		<div class="row">
