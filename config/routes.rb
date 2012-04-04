@@ -14,6 +14,7 @@ Wingman::Application.routes.draw do
   get "wingmen" => "home#wingmen", :as => :wingmen
   get "helping" => "home#helping", :as => :helping
   get "search" => "home#search", :as => :search
+  get "share" => "home#share", :as => :share
   
   match "/auth/:provider/callback" => "sessions#create"
   match "/signout" => "sessions#destroy", :as => :signout

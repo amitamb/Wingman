@@ -26,4 +26,8 @@ class HomeController < ApplicationController
     @q = params[:q]
     @people = Person.joins(:user).where(["users.name LIKE ?", '%'+@q+'%'])
   end
+  
+  def share
+    redirect_to :back
+  end
 end
