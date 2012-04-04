@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120403224058) do
+ActiveRecord::Schema.define(:version => 20120404095442) do
 
   create_table "people", :force => true do |t|
     t.string   "location"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(:version => 20120403224058) do
     t.boolean  "wingman_approved", :default => false, :null => false
     t.datetime "created_at",                          :null => false
     t.datetime "updated_at",                          :null => false
+    t.string   "message"
   end
 
   add_index "wingmanships", ["person_id"], :name => "index_wingmanships_on_person_id"

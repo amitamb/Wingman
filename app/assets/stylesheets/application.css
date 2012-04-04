@@ -46,6 +46,11 @@ fieldset.actions li {
   clear:both;
 }
 
+.wingmanship_message {
+  background-color:#DDD;padding:10px;
+  margin-bottom:20px;
+}
+
 table.person {
   width:100%;
 }
@@ -77,6 +82,7 @@ table.person td.attribute_value {
   display:block;
   padding:5px;
   text-align:right;
+  background-color:#FAFAFA;
 }
 
 #right-panel li.wingman-request .profile_img {
@@ -95,6 +101,16 @@ table.person td.attribute_value {
 
 #right-panel li.wingman-request .action-link {
   
+}
+
+#right-panel li.wingman-request .message {
+  margin-top:4px;
+  font-size:12px;
+  padding:5px 5px;
+  display:block;
+  text-align:left;
+  font-style:italic;
+  font-weight:small;
 }
 
 .wingman_small {

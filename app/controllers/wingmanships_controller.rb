@@ -1,11 +1,12 @@
 class WingmanshipsController < ApplicationController
   def create
+    # TODO : Wingmanship should actually have tags associated with it but keeping it as it is
     if params[:wingman_id] == current_person.id
       redirect_to :back, :alert => "Can't send wingman request to yourself."
     else
-      @wingmanship = current_person.sent_wingmanship_requests.where(:wingman_id => params[:wingman_id]).first
+      @wingmanship = current_person.sent_wingmanship_requests.where(:wingman_id => params[:wingman_id], :message => params[:message]).first
       if !@wingmanship
-        @wingmanship = current_person.sent_wingmanship_requests.create(:wingman_id => params[:wingman_id])
+        @wingmanship = current_person.sent_wingmanship_requests.create(:wingman_id => params[:wingman_id], :message => params[:message])
         redirect_to :back, :notice => "Wingmanship Request sent successfully."
       else
         redirect_to :back, :alert => "Do not send request again."

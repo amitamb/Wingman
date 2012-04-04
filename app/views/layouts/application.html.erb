@@ -110,6 +110,7 @@
                   <%= link_to "Accept", accept_wingmanship_path(wsr), :class => "btn btn-mini action-link" %>
                   <%= link_to "Reject", wsr, :method => :put, :class => "btn btn-mini action-link btn-danger" %>
                   <div class="clear"></div>
+                  <span class="message"><%= wsr.message %></span>
                 </li>
               <% end %>
             </ul>

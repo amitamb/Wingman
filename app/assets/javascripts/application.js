@@ -36,5 +36,13 @@ $(function(){
     var $this = $(this);
     $this.parents("li").toggleClass("selected");
   });
+  
+  $(".btn-wingman-request").click(function(e){
+    var message = prompt("Write short message on how you need help?");
+    if (!message) { return false; }
+    $(this).attr("href", $(this).attr("href") + "&message=" + encodeURIComponent(message) );
+    //e.preventDefault();
+    //return false;
+  });
 
 });

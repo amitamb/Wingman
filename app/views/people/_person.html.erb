@@ -33,14 +33,14 @@
       </td>
     </tr>
     <tr>
-      <td class="attribute_name">Helping People:</td>
+      <td class="attribute_name">Wingman for:</td>
       <td class="attribute_value">
         <% unless @person.inverse_wingmans.empty? %>
           <% @person.inverse_wingmans.each do |p| %>
             <%= link_to image_tag(p.image), p %>
           <% end %>
         <% else %>
-          <i>Not heloing anyone</i>
+          <i>Not helping anyone</i>
         <% end %>
       </td>
     </tr>
