@@ -98,21 +98,23 @@
         </div>
         <div class="span3" id="right-panel">
           <!-- First show wingmanshiip requests -->
-          <h5 class="pull-right" style="padding-right:15px;margin-bottom:5px;">Pending Requests</h5>
-          <div class="clear"></div>
-          <ul class="wingman-requests">
-            <% current_person.received_wingmanship_requests.each do |wsr| %>
-              <li class="wingman-request">
-                <%= link_to image_tag(wsr.person.image, :class => "pull-right profile_img"), wsr.person %>
-                <%= link_to content_tag(:span, wsr.person.name, :class => "name"), wsr.person %><br />
-                <span class="short_desc"><%= wsr.person.short_desc %></span><br />
-                <%= link_to "Accept", accept_wingmanship_path(wsr), :class => "btn btn-mini action-link" %>
-                <%= link_to "Reject", wsr, :method => :put, :class => "btn btn-mini action-link btn-danger" %>
-                <div class="clear"></div>
-              </li>
-            <% end %>
-          </ul>
-          <hr />
+          <% unless current_person.received_wingmanship_requests.empty? %>
+            <h5 class="pull-right" style="padding-right:15px;margin-bottom:5px;">Pending Requests</h5>
+            <div class="clear"></div>
+            <ul class="wingman-requests">
+              <% current_person.received_wingmanship_requests.each do |wsr| %>
+                <li class="wingman-request">
+                  <%= link_to image_tag(wsr.person.image, :class => "pull-right profile_img"), wsr.person %>
+                  <%= link_to content_tag(:span, wsr.person.name, :class => "name"), wsr.person %><br />
+                  <span class="short_desc"><%= wsr.person.short_desc %></span><br />
+                  <%= link_to "Accept", accept_wingmanship_path(wsr), :class => "btn btn-mini action-link" %>
+                  <%= link_to "Reject", wsr, :method => :put, :class => "btn btn-mini action-link btn-danger" %>
+                  <div class="clear"></div>
+                </li>
+              <% end %>
+            </ul>
+            <hr />
+          <% end %>
           <%= yield(:right_panel) if content_for?(:right_panel) %>
         </div>
       </div>

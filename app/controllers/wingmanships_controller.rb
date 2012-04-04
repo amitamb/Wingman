@@ -14,7 +14,7 @@ class WingmanshipsController < ApplicationController
   end
 
   def destroy
-    @wingmanship = current_person.all_wingmanships.find(params[:id])
+    @wingmanship = Wingmanship.where(["id = ? AND (person_id = ? OR wingman_id = ?)", params[:id], current_person.id, current_person.id]).first
     @wingmanship.destroy
     flash[:notice] = "Removed wingmanship #{ @wingmanship.approved? ? "" : "request " }successfully."
     redirect_to :back

@@ -14,7 +14,7 @@
     <h3>Your Wingmen</h3>
     <hr />
     <% current_person.wingmans.each do |p| %>
-      <h1><%= link_to p.name, p %></h1>
+      <%= render "/people/person_small", :person => p %>
     <% end %>
   </div>
 </div>
