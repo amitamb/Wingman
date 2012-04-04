@@ -10,9 +10,11 @@
 
 
 <div class="row">
-  <div class="span7">
+  <div class="span6">
     <h3>Your Wingmen</h3>
     <hr />
-
+    <% current_person.wingmans.each do |p| %>
+      <h1><%= link_to p.name, p %></h1>
+    <% end %>
   </div>
 </div>

@@ -54,8 +54,8 @@ ActiveRecord::Schema.define(:version => 20120403224058) do
   create_table "wingmanships", :force => true do |t|
     t.integer  "person_id"
     t.integer  "wingman_id"
-    t.boolean  "person_approved",  :default => true
-    t.boolean  "wingman_approved", :default => false
+    t.boolean  "person_approved",  :default => true,  :null => false
+    t.boolean  "wingman_approved", :default => false, :null => false
     t.datetime "created_at",                          :null => false
     t.datetime "updated_at",                          :null => false
   end

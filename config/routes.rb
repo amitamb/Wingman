@@ -1,7 +1,11 @@
 Wingman::Application.routes.draw do
 
   resources :people
-  resources :wingmanships
+  resources :wingmanships do
+    member do
+      get 'accept'
+    end
+  end
 
   root :to => "home#index"
 

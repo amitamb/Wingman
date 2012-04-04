@@ -8,17 +8,21 @@
 
 
 <div class="row">
-  <div class="span7">
+  <div class="span6">
     <% if @person.id != current_person.id %>
-      <% if current_person.wingmans.exists?(@person.id) %>
+      <% if wingmanship = current_person.received_wingmanship_requests.where(:person_id => @person.id) %>
+        <%= link_to "Accept Wingmanship", accept_wingmanship_path(wingmanship), :class => "btn btn-small btn-red btn-primary pull-right" %>
+      <% end %>
+      <span class="pull-right">&nbsp;</span>
+      <% if current_person.all_wingmans.exists?(@person.id) %>
         <% wingmanship = Wingmanship.where(:person_id => current_person.id, :wingman_id => @person.id).first %>
         <% if wingmanship.approved? %>
-          <%= link_to "Cancel Wingmanship", wingmanship, :method => :delete, :class => "btn btn-red pull-right btn-warning" %>
+          <%= link_to "Cancel Wingmanship", wingmanship, :method => :delete, :class => "btn btn-small btn-red pull-right btn-warning" %>
         <% else %>
-          <%= link_to "Cancel Wingmanship Request", wingmanship, :method => :delete, :class => "btn btn-red pull-right btn-warning" %>
+          <%= link_to "Cancel Wingmanship Request", wingmanship, :method => :delete, :class => "btn btn-small btn-red pull-right btn-warning" %>
         <% end %>
       <% else %>
-        <%= link_to "Send Wingman Request", wingmanships_path(:wingman_id => @person), :method => :post, :class => "btn btn-primary pull-right", :title => "Get help in specific areas" %>
+        <%= link_to "Send Wingman Request", wingmanships_path(:wingman_id => @person), :method => :post, :class => "btn btn-small btn-primary pull-right", :title => "Get help in specific areas" %>
       <% end %>
       <!-- Keeping it simple, User can not ask to become a wingman he should receive a request -->
       <!--

@@ -66,3 +66,33 @@ table.person td.attribute_name {
 table.person td.attribute_value {
   padding-top:20px;
 }
+
+
+#right-panel ul.wingman-requests {
+  list-style:none;
+  margin-left:0;
+}
+
+#right-panel li.wingman-request {
+  display:block;
+  padding:5px;
+  text-align:right;
+}
+
+#right-panel li.wingman-request .profile_img {
+  padding:5px 10px;
+  width:50px;height:50px;
+}
+
+#right-panel li.wingman-request .name {
+  line-height:100%;
+}
+
+#right-panel li.wingman-request .short_desc {
+  font-size:11px;
+  line-height:100%;
+}
+
+#right-panel li.wingman-request .action-link {
+  
+}
