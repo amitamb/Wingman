@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120403170923) do
+ActiveRecord::Schema.define(:version => 20120403224058) do
 
   create_table "people", :force => true do |t|
     t.string   "location"
@@ -50,5 +50,17 @@ ActiveRecord::Schema.define(:version => 20120403170923) do
     t.string   "image"
     t.string   "location"
   end
+
+  create_table "wingmanships", :force => true do |t|
+    t.integer  "person_id"
+    t.integer  "wingman_id"
+    t.boolean  "person_approved",  :default => true
+    t.boolean  "wingman_approved", :default => false
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
+  end
+
+  add_index "wingmanships", ["person_id"], :name => "index_wingmanships_on_person_id"
+  add_index "wingmanships", ["wingman_id"], :name => "index_wingmanships_on_wingman_id"
 
 end

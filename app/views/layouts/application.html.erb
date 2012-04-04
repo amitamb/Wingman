@@ -52,11 +52,18 @@
 			</div>
 		</div>
   <div class="container">
+    <%- flash.each do |name, msg| -%>
+      <% 
+        alert_class = ""
+        if name == :notice then alert_class = "alert-success" elsif name == :alert then alert_class = "alert-error" end
+      %>
+      <%= content_tag :div, msg, :id => "flash_#{name}", :class => "alert" + " " + alert_class %>
+    <%- end -%>
     <% if content_for?(:left_panel) || content_for?(:right_panel) %>
       <div class="row">
         <div id="left-nav" class="span3" style="height:100%;">
           <div class="profile-img">
-            <%= link_to image_tag( current_user.image_large, :class => "pull-right"), if (current_person.id) then person_path(current_person) else "/" end %></a>
+            <%= link_to image_tag( (@person || current_person).user.image_large, :class => "pull-right"), if ((@person || current_person).id) then person_path((@person || current_person)) else "/" end %></a>
           </div>
           <div class="clear"></div>
           <ul class="nav nav-list">

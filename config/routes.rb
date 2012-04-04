@@ -1,5 +1,7 @@
 Wingman::Application.routes.draw do
+
   resources :people
+  resources :wingmanships
 
   root :to => "home#index"
 
