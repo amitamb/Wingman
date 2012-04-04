@@ -10,6 +10,7 @@ Wingman::Application.routes.draw do
   root :to => "home#index"
 
   get "my_shares" => "home#my_shares", :as => :my_shares
+  get "popup" => "home#popup", :as => :popup
   get "wingmen" => "home#wingmen", :as => :wingmen
   get "helping" => "home#helping", :as => :helping
   

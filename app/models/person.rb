@@ -19,5 +19,13 @@ class Person < ActiveRecord::Base
 
   has_many :sent_wingmanship_requests, :class_name => "Wingmanship", :foreign_key => "person_id", :conditions => { :wingman_approved => false }
   has_many :received_wingmanship_requests, :class_name => "Wingmanship", :foreign_key => "wingman_id", :conditions => { :wingman_approved => false }
+  
+  def suggested_wingmans
+    Person.find_by_sql(["SELECT people.* FROM people, wingmanships " +
+                        "WHERE people.id = wingmanships.wingman_id AND " +
+                        "wingmanships.person_id != ? AND " +
+                        "people.id != ?", self.id, self.id])
+    #.where(["id != ?", self.id])
+  end
 
 end

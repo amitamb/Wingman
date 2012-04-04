@@ -16,4 +16,9 @@ class HomeController < ApplicationController
   def helping
     
   end
+  
+  def popup
+    @url = params[:url]
+    render :layout => nil
+  end
 end
