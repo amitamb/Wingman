@@ -16,8 +16,10 @@
 // Removed
 // require_tree .
 
-
 $(function(){
+
+  $("#bookmarklet").click(function(){ return false; });
+
   $(function(){
     $("#" + window.nav_id).parents("li").toggleClass("active");
   });

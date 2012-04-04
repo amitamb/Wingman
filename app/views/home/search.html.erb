@@ -1,0 +1,24 @@
+<% @nav_id = "nav-home" %>
+
+<% content_for :left_panel do %>
+  &nbsp;
+<% end %>
+
+<% content_for :right_panel do %>
+  &nbsp;
+<% end %>
+
+<div class="row">
+  <div class="span6">
+    <h3>Search results</h3>
+    <hr />
+    <%= render "search_form" %>
+    <% unless @people.empty? %>
+      <% @people.each do |p| %>
+        <%= render "/people/person_small", :person => p %>
+      <% end %>
+    <% else %>
+      No search results found....
+    <% end %>
+  </div>
+</div>

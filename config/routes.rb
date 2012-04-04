@@ -13,6 +13,7 @@ Wingman::Application.routes.draw do
   get "popup" => "home#popup", :as => :popup
   get "wingmen" => "home#wingmen", :as => :wingmen
   get "helping" => "home#helping", :as => :helping
+  get "search" => "home#search", :as => :search
   
   match "/auth/:provider/callback" => "sessions#create"
   match "/signout" => "sessions#destroy", :as => :signout

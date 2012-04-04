@@ -21,4 +21,9 @@ class HomeController < ApplicationController
     @url = params[:url]
     render :layout => nil
   end
+  
+  def search
+    @q = params[:q]
+    @people = Person.joins(:user).where(["users.name LIKE ?", '%'+@q+'%'])
+  end
 end

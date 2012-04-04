@@ -13,20 +13,21 @@
   <div class="span6">
     <h3>Home</h3>
     <hr />
+    <%= render "search_form" %>
     <% unless current_user.is_setup %>
       <div class="bookmarklet-install">
-        <a href="javascript:(function() { <%= 'window.open("http://localhost:3000/popup?url="+encodeURIComponent(window.location.href),"mywindow","menubar=1,resizable=1,width=1070,height=400,left=200,top=200");' %> })();" class="btn btn-primary pull-right">Wingman</a>
+        <a id="bookmarklet" href="javascript:(function() { <%= 'window.open("http://localhost:3000/popup?url="+encodeURIComponent(window.location.href),"mywindow","menubar=1,resizable=1,width=1070,height=400,left=200,top=200");' %> })();" class="btn btn-primary pull-right">Wingman</a>
         <h3>Install Bookmarklet</h3>
         Drag following button to your bookmarks bar.<br />
         It will give you easy access to share links with Wingman.
       </div>
       <hr />
     <% end %>
-  </div>
-  <div class="span6">
-    <h3>Start adding few wingmen</h3>
-    <% current_person.suggested_wingmans.each do |p| %>
-      <%= render "/people/person_small", :person => p %>
+    <% unless current_person.suggested_wingmans.empty? %>
+      <h3>Start adding few wingmen</h3>
+      <% current_person.suggested_wingmans.each do |p| %>
+        <%= render "/people/person_small", :person => p %>
+      <% end %>
     <% end %>
   </div>
 </div>
