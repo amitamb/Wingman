@@ -28,4 +28,6 @@ class Person < ActiveRecord::Base
     #.where(["id != ?", self.id])
   end
 
+  has_many :original_items, :class_name => "Item", :foreign_key => :original_creator_id
+
 end

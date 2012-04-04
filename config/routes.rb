@@ -1,5 +1,7 @@
 Wingman::Application.routes.draw do
 
+  resources :items
+
   resources :people
   resources :wingmanships do
     member do
