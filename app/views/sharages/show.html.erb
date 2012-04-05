@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Person:</b>
+  <%= @sharage.person %>
+</p>
+
+<p>
+  <b>Item:</b>
+  <%= @sharage.item %>
+</p>
+
+
+<%= link_to 'Edit', edit_sharage_path(@sharage) %> |
+<%= link_to 'Back', sharages_path %>

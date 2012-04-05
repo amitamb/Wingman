@@ -13,6 +13,7 @@
     <h3>Search results</h3>
     <hr />
     <%= render "search_form" %>
+    <div class="clear"></div>
     <% unless @people.empty? %>
       <% @people.each do |p| %>
         <%= render "/people/person_small", :person => p %>

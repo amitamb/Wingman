@@ -83,6 +83,10 @@
             </li>
             <li class="divider"></li>
             <li>
+              <a id="nav-items" href="/items">Your Shared Items</a>
+            </li>
+            <li class="divider"></li>
+            <li>
               <!-- 0 means current user as id is ignored -->
               <a id="nav-preferences" href="/people/0/edit">Preferences</a>
             </li>
@@ -98,7 +102,7 @@
         <div class="span3" id="right-panel">
           <!-- First show wingmanshiip requests -->
           <% unless current_person.received_wingmanship_requests.empty? %>
-            <h5 class="pull-right" style="padding-right:15px;margin-bottom:5px;">Pending Requests</h5>
+            <h5 class="pull-right" style="padding-right:15px;margin-bottom:5px;">Pending Requests to you</h5>
             <div class="clear"></div>
             <ul class="wingman-requests">
               <% current_person.received_wingmanship_requests.each do |wsr| %>
@@ -107,7 +111,7 @@
                   <%= link_to content_tag(:span, wsr.person.name, :class => "name"), wsr.person %><br />
                   <span class="short_desc"><%= wsr.person.short_desc %></span><br />
                   <%= link_to "Accept", accept_wingmanship_path(wsr), :class => "btn btn-mini action-link" %>
-                  <%= link_to "Reject", wsr, :method => :put, :class => "btn btn-mini action-link btn-danger" %>
+                  <%= link_to "Reject", wsr, :method => :delete, :class => "btn btn-mini action-link btn-danger" %>
                   <div class="clear"></div>
                   <span class="message"><%= wsr.message %></span>
                 </li>
@@ -115,6 +119,41 @@
             </ul>
             <hr />
           <% end %>
+          <% unless current_person.suggested_wingmans.empty? %>
+            <h5 class="pull-right" style="padding-right:15px;margin-bottom:5px;">Suggested Users</h5>
+            <div class="clear"></div>
+            <ul class="wingman-requests">
+              <% current_person.suggested_wingmans.all.each do |person| %>
+                <li class="wingman-request">
+                  <%= link_to image_tag(person.image, :class => "pull-right profile_img"), person %>
+                  <%= link_to content_tag(:span, person.name, :class => "name"), person %><br />
+                  <span class="short_desc"><%= person.short_desc %></span><br />
+                  <%= link_to "Ask to be Wingman", wingmanships_path(:wingman_id => person), :method => :post, :class => "btn-wingman-request btn btn-mini btn-primary pull-right", :title => "Get help in specific areas" %>
+                  <div class="clear"></div>
+                  <span class="message"><%= "" %></span>
+                </li>
+              <% end %>
+            </ul>
+            <hr />
+          <% end %>
+          <% unless current_person.sent_wingmanship_requests.empty? %>
+            <h5 class="pull-right" style="padding-right:15px;margin-bottom:5px;">Pending Requests by you</h5>
+            <div class="clear"></div>
+            <ul class="wingman-requests">
+              <% current_person.sent_wingmanship_requests.each do |wsr| %>
+                <li class="wingman-request">
+                  <%= link_to image_tag(wsr.wingman.image, :class => "pull-right profile_img"), wsr.wingman %>
+                  <%= link_to content_tag(:span, wsr.wingman.name, :class => "name"), wsr.wingman %><br />
+                  <span class="short_desc"><%= wsr.wingman.short_desc %></span><br />
+                  <%= link_to "Cancel Request", wsr, :method => :delete, :class => "btn btn-mini action-link btn-danger" %>
+                  <div class="clear"></div>
+                  <span class="message"><%= wsr.message %></span>
+                </li>
+              <% end %>
+            </ul>
+            <hr />
+          <% end %>
+          
           <%= yield(:right_panel) if content_for?(:right_panel) %>
         </div>
       </div>

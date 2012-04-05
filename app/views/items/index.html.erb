@@ -1,25 +1,30 @@
-<h1>Listing items</h1>
+<% @nav_id = "nav-items" %>
 
-<table>
-  <tr>
-    <th>Text</th>
-    <th>Original creator</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @items.each do |item| %>
-  <tr>
-    <td><%= item.text %></td>
-    <td><%= item.original_creator_id %></td>
-    <td><%= link_to 'Show', item %></td>
-    <td><%= link_to 'Edit', edit_item_path(item) %></td>
-    <td><%= link_to 'Destroy', item, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
+<% content_for :left_panel do %>
+  &nbsp;
 <% end %>
-</table>
 
-<br />
+<% content_for :right_panel do %>
+  &nbsp;
+<% end %>
 
+<div class="row">
+  <div class="span6">
+    <h3>Your Shared Items</h3>
+    <hr />
+    <% unless current_person.items.empty? %>
+      <ul class="items">
+      <% current_person.items.order("created_at DESC").each do |i| %>
+        <%= render i %>
+      <% end %>
+      </ul>
+    <% else %>
+      You have not shared anything. <a href="/">Start sharing</a>
+    <% end %>
+  </div>
+</div>
+
+
+<!--
 <%= link_to 'New Item', new_item_path %>
+-->

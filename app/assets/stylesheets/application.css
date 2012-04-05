@@ -130,6 +130,62 @@ table.person td.attribute_value {
   padding:10px 0;
 }
 
+.bookmarklet-install .close {
+  margin:0px 0px 10px 5px;
+}
+
 .bookmarklet-install .btn {
-  margin:30px 10px;
+  margin:10px 10px;
+}
+
+#new_item label[for=item_text]{
+  display:none;
+}
+
+#new_item div.input{
+  margin-bottom:0;
+}
+
+#new_item #item_listeners_input div.input{
+  margin-bottom:10px;
+}
+
+#new_item input[type=text] {
+  width:98%;
+  margin:0;
+}
+
+#new_item .choices-group {
+  width:100%;
+}
+
+.items {
+  list-style:none;
+  margin:10px 0;
+}
+
+.item-small {
+  width:100%;
+  display:block;
+  padding:10px 5px;
+}
+
+.item-small .text {
+  display:block;
+  width:90%;
+}
+.item-small .text a {
+  display:block;
+  overflow:hidden;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+}
+
+.image-mini {
+  width:25px;height:25px;
+}
+
+ul.shared-with {
+  margin:5px 0 !important;padding:0 !important;
+  list-style:none !important;
 }

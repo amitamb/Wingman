@@ -16,7 +16,8 @@
     <%= render "share_form" %>
     <!-- <%= render "search_form" %> -->
     <% unless current_user.is_setup %>
-      <div class="bookmarklet-install">
+      <div class="bookmarklet-install pull-right" style="display:none;">
+        <a class="close">&times;</a>
         <a id="bookmarklet" href="javascript:(function() { <%= 'window.open("http://localhost:3000/popup?url="+encodeURIComponent(window.location.href),"mywindow","menubar=1,resizable=1,width=1070,height=400,left=200,top=200");' %> })();" class="btn btn-primary pull-right">Wingman</a>
         <h3>Install Bookmarklet</h3>
         Drag following button to your bookmarks bar.<br />

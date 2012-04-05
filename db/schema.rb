@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120404095442) do
+ActiveRecord::Schema.define(:version => 20120404213541) do
+
+  create_table "items", :force => true do |t|
+    t.string   "text"
+    t.integer  "sharer_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "items", ["sharer_id"], :name => "index_items_on_sharer_id"
 
   create_table "people", :force => true do |t|
     t.string   "location"
@@ -21,6 +30,16 @@ ActiveRecord::Schema.define(:version => 20120404095442) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "sharages", :force => true do |t|
+    t.integer  "person_id"
+    t.integer  "item_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "sharages", ["item_id"], :name => "index_sharages_on_item_id"
+  add_index "sharages", ["person_id"], :name => "index_sharages_on_person_id"
 
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"

@@ -1,5 +1,7 @@
 Wingman::Application.routes.draw do
 
+  resources :sharages
+
   resources :items
 
   resources :people

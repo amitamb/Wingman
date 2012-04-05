@@ -4,7 +4,7 @@ class WingmanshipsController < ApplicationController
     if params[:wingman_id] == current_person.id
       redirect_to :back, :alert => "Can't send wingman request to yourself."
     else
-      @wingmanship = current_person.sent_wingmanship_requests.where(:wingman_id => params[:wingman_id], :message => params[:message]).first
+      @wingmanship = current_person.all_wingmanships.where(:wingman_id => params[:wingman_id]).first
       if !@wingmanship
         @wingmanship = current_person.sent_wingmanship_requests.create(:wingman_id => params[:wingman_id], :message => params[:message])
         redirect_to :back, :notice => "Wingmanship Request sent successfully."

@@ -1,4 +1,19 @@
-<form class="pull-left" action="/share" class="span6" style="text-align:center;">
-  <input name="text" type="text" class="span4" value="" placeholder="Share Something..." />
-  <input type="submit" class="span2" placeholder="Search" value="Share" />
-</form>
+<%= semantic_form_for Item.new do |f| %>
+  <%= f.inputs do %>
+    <%= f.input :text, :label => "-", :input_html => { :placeholder => "Share Something...", :class => "span6" } %>
+  <% end %>
+
+  <div class="full-controls" style="display:none;">
+    <div class="tag-list" style="text-align:left;">
+      <%= f.input :tag_list, :label => "Assign Tags", :as => :check_boxes, :collection => current_person.know_list, :input_html => { :class => "tag_input" } %>
+    </div>
+
+    <div class="share-with" style="text-align:left;">
+      <%= f.input :listeners, :label => "Share with", :as => :check_boxes, :collection => current_person.inverse_wingmans.all, :input_html => { :class => "tag_input" } %>
+    </div>
+
+    <%= f.actions do %>
+      <%= f.action :submit, :as => :input, :button_html => { :class => "btn btn-primary pull-left", :style => "padding:4px 10px 4px;", :value => "Share" } %>
+    <% end %>
+  </div>
+<% end %>

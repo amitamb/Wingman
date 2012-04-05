@@ -1,3 +1,9 @@
 class Item < ActiveRecord::Base
-  belongs_to :original_creator, :class_name => "Person"
+
+  belongs_to :sharer, :class_name => "Person"
+  
+  acts_as_taggable
+  
+  has_many :sharages
+  has_many :listeners, :through => :sharages, :source => :person
 end

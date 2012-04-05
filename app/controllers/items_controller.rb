@@ -40,11 +40,11 @@ class ItemsController < ApplicationController
   # POST /items
   # POST /items.json
   def create
-    @item = Item.new(params[:item])
+    @item = current_person.items.build(params[:item])
 
     respond_to do |format|
       if @item.save
-        format.html { redirect_to @item, notice: 'Item was successfully created.' }
+        format.html { redirect_to items_path, notice: 'Item was successfully created.' }
         format.json { render json: @item, status: :created, location: @item }
       else
         format.html { render action: "new" }
@@ -72,7 +72,7 @@ class ItemsController < ApplicationController
   # DELETE /items/1
   # DELETE /items/1.json
   def destroy
-    @item = Item.find(params[:id])
+    @item = current_person.items.find(params[:id])
     @item.destroy
 
     respond_to do |format|

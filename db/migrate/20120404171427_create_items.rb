@@ -3,11 +3,11 @@ class CreateItems < ActiveRecord::Migration
 
     create_table :items do |t|
       t.string :text
-      t.integer :original_creator_id
+      t.integer :sharer_id
 
       t.timestamps
     end
 
-    add_index :items, :original_creator_id
+    add_index :items, :sharer_id
   end
 end

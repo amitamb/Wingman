@@ -17,8 +17,48 @@
 // require_tree .
 
 $(function(){
+  
+  $("#item_text").focus(function(){
+    $("#new_item .full-controls").css({'display' : ''});
+  });
+  
+  $("#new_item").submit(function(){
+    if ( !$("#item_text").val() ) {
+      return false;
+    }
+    else if ( !$("#item_tag_list_input input[type=checkbox]").is(":checked") ) {
+      alert("Assign at least one tag.");
+      return false;
+    }
+    else if ( !$("#item_listeners_input input[type=checkbox]").is(":checked") ) {
+      var resp = confirm("You haven't shared this item with anyone. Do you want to continue to simply save it for future use?");
+      return resp;
+    }
+  });
 
-  $("#bookmarklet").click(function(){ return false; });
+  // Not blurring works actually
+  $("#new_item").focusout(function(){
+    // Disable
+    return;
+    if ( !$(this).val() ) {
+      $("#new_item .full-controls").css({'display' : 'none'});
+    }
+  });
+
+  if ( !localStorage["bookmarklet-install-hide"] ) {
+    $(".bookmarklet-install").css({ display : "" });
+  }
+  $("#bookmarklet").on("click mousedown", function(){ 
+    localStorage["bookmarklet-install-hide"] = true;
+    return false;
+  });
+  $(".bookmarklet-install .close").click(function(){
+    $(".bookmarklet-install").css({ display : "none" });
+    localStorage["bookmarklet-install-hide"] = true;
+  });
+  if( $("#new_item #item_listeners_input .choices-group").find("li").length == 0) {
+    $("#new_item #item_listeners_input .choices-group").html("<i>You are not assigned as a wingman to anyone.  Still save them for later use.</i>");
+  }
 
   $(function(){
     $("#" + window.nav_id).parents("li").toggleClass("active");

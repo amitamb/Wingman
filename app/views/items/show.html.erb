@@ -1,15 +1,26 @@
-<p id="notice"><%= notice %></p>
+<% @nav_id = "nav-item" %>
 
-<p>
-  <b>Text:</b>
-  <%= @item.text %>
-</p>
+<% content_for :left_panel do %>
+  &nbsp;
+<% end %>
 
-<p>
-  <b>Original creator:</b>
-  <%= @item.original_creator_id %>
-</p>
+<% content_for :right_panel do %>
+  &nbsp;
+<% end %>
 
 
-<%= link_to 'Edit', edit_item_path(@item) %> |
-<%= link_to 'Back', items_path %>
+<div class="row">
+  <div class="span6">
+    <h3>Item</h3>
+    <hr />
+    <% unless current_person.items.empty? %>
+      <ul class="items">
+      <% current_person.items.each do |i| %>
+        <%= render i %>
+      <% end %>
+      </ul>
+    <% else %>
+      You have not shared anything. <a href="/">Start sharing</a>
+    <% end %>
+  </div>
+</div>

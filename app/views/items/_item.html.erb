@@ -1,0 +1,23 @@
+<li class="item-small">
+  <span class="pull-right" style="text-align:right;">
+    <span  style="color:#999;font-size:10px;"><%= time_ago_in_words(item.created_at) + " ago" %></span><br />
+    <%= link_to 'Destroy', item, confirm: 'Are you sure?', method: :delete, class: "btn-mini" %>
+  </span>
+  <% if false %>
+    <br />
+    <%= link_to 'Details', item, class: "pull-right btn", style: "margin-top:5px;" %>
+  <% end %>
+  <div style="font-size:110%;font-weight:Bold;color:#55D;display:none;">
+    <%= link_to item, class: "", style: ";" do %>
+      You shared it with <%= item.listeners.empty? ? "No one" : "Someone" %>
+    <% end %>
+  </div>
+  <span class="text"><%=raw Rinku.auto_link(item.text || "", mode=:all, link_attr=nil, skip_tags=nil) %></span>
+  <div class="clear"></div>
+  <ul class="shared-with">
+    <% item.listeners.each do |l| %>
+      <li><%= link_to image_tag(l.image, :class => "image-mini"), l %></li>
+    <% end %>
+  </ul>
+  <hr style="margin-bottom:0;" />
+</li>
