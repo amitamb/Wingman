@@ -1,4 +1,12 @@
 <div class="wingman_small">
-  <%= image_tag person.image %>
-  &nbsp;<%= link_to person.name, person %>
+  <%= link_to image_tag(person.image), person, :class => "pull-left" %>
+  <div style="display:table-cell;float:left;margin-left:15px;">
+    <%= link_to person.name, person, :style => "line-height:25px;" %>&nbsp;<i style="font-size:11px;">(<%= person.short_desc %>)</i>
+    <br />
+    <%= link_to "Ask to be Wingman", wingmanships_path(:wingman_id => person), :method => :post, :class => "btn-wingman-request btn btn-mini btn-primary", :title => "Get help in specific areas" %>
+    <br/>
+    <div style="margin-top:7px;"><%= person.desc %></div>
+    <div class="clear"></div>
+  </div>
+  <div class="clear"></div>
 </div>

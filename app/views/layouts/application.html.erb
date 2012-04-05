@@ -102,7 +102,7 @@
         <div class="span3" id="right-panel">
           <!-- First show wingmanshiip requests -->
           <% unless current_person.received_wingmanship_requests.empty? %>
-            <h5 class="pull-right" style="padding-right:15px;margin-bottom:5px;">Pending Requests to you</h5>
+            <h5 class="pull-right" style="padding-right:15px;margin-bottom:5px;">Received Requests</h5>
             <div class="clear"></div>
             <ul class="wingman-requests">
               <% current_person.received_wingmanship_requests.each do |wsr| %>
@@ -123,7 +123,7 @@
             <h5 class="pull-right" style="padding-right:15px;margin-bottom:5px;">Suggested Users</h5>
             <div class="clear"></div>
             <ul class="wingman-requests">
-              <% current_person.suggested_wingmans.all.each do |person| %>
+              <% current_person.suggested_wingmans.limit(3).all.each do |person| %>
                 <li class="wingman-request">
                   <%= link_to image_tag(person.image, :class => "pull-right profile_img"), person %>
                   <%= link_to content_tag(:span, person.name, :class => "name"), person %><br />
@@ -137,7 +137,7 @@
             <hr />
           <% end %>
           <% unless current_person.sent_wingmanship_requests.empty? %>
-            <h5 class="pull-right" style="padding-right:15px;margin-bottom:5px;">Pending Requests by you</h5>
+            <h5 class="pull-right" style="padding-right:15px;margin-bottom:5px;">Sent Requests</h5>
             <div class="clear"></div>
             <ul class="wingman-requests">
               <% current_person.sent_wingmanship_requests.each do |wsr| %>

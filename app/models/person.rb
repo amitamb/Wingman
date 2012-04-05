@@ -23,7 +23,7 @@ class Person < ActiveRecord::Base
   def suggested_wingmans
     wingman_ids = self.all_wingmanships.collect { |wsr| wsr.wingman_id }
     if wingman_ids.empty? then wingman_ids = [0] end
-    Person.where( [ "id NOT IN (?)" , wingman_ids] ).where("id != ?", self.id)
+    Person.where( [ "id NOT IN (?)" , wingman_ids] ).where("id != ?", self.id).order(" RANDOM() ")
   end
 
   has_many :items, :foreign_key => :sharer_id # these are shared by person
