@@ -12,7 +12,7 @@
           <i>Not shared with anyone</i>
         <% end %>
       </ul>
-      <span  style="color:#999;font-size:11px;"><%= time_ago_in_words(item.created_at) + " ago" %> |</span><%= link_to 'Destroy', item, confirm: 'Are you sure?', method: :delete, class: "btn-mini", :style => "color:#999;" %>
+      <span  style="color:#999;font-size:11px;"><%= time_ago_in_words(item.created_at) + " ago" %> |</span><%= link_to 'delete', item, confirm: 'Are you sure?', method: :delete, class: "btn-mini", :style => "color:#999;" %>
       <br />
       <div class="comments" style="margin-top:12px;" data-commentable-id="<%= item.id %>" data-commentable-id="<%= item.class.to_s %>" >
         <% unless item.comments.empty? %>
