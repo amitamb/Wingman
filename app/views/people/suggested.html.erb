@@ -1,0 +1,25 @@
+<% content_for :left_panel do %>
+  
+<% end %>
+
+<% content_for :right_panel do %>
+  &nbsp;
+<% end %>
+
+
+<div class="row">
+  <div class="span6">
+    <h3>User sugestions</h3>
+    <hr />
+    <% unless current_person.suggested_wingmans.empty? %>
+      <% current_person.suggested_wingmans.limit(10).each do |p| %>
+        <%= render "/people/person_small", :person => p %>
+        <hr />
+      <% end %>
+    <% else %>
+      There are no suggestions.
+    <% end %>
+  </div>
+</div>
+
+<% @nav_id = "nav-suggested" %>

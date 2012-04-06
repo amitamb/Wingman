@@ -50,4 +50,7 @@ class PeopleController < ApplicationController
     end
   end
 
+  def suggested
+  end
+
 end

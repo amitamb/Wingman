@@ -87,6 +87,10 @@
             </li>
             <li class="divider"></li>
             <li>
+              <a id="nav-suggested" href="/people/suggested">Suggested Users</a>
+            </li>
+            <li class="divider"></li>
+            <li>
               <!-- 0 means current user as id is ignored -->
               <a id="nav-preferences" href="/people/0/edit">Preferences</a>
             </li>
@@ -134,6 +138,8 @@
                 </li>
               <% end %>
             </ul>
+            <%= link_to "See more suggestions", suggested_people_path, :class => "pull-right" %>
+            <div class="clear"></div>
             <hr />
           <% end %>
           <% unless current_person.sent_wingmanship_requests.empty? %>

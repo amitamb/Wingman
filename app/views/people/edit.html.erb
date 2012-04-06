@@ -15,4 +15,31 @@
   </div>
 </div>
 
+<div class="modal" id="myModal" style="display:none;">
+  <div class="modal-header">
+    <a class="close" data-dismiss="modal">×</a>
+    <h3>Important Message</h3>
+  </div>
+  <div class="modal-body">
+    <p>Wingman is not usual social network or a question answer site. It is rather simple way to help others.</p>
+    <p>Each of us have expertise and knoowledge of latest trends in certain fields. Some of us love to read news and understand political climate. Others like to dwell into interesting historical events. Or some of us scout through different websites for deals and coupons.</p>
+    <!-- <p>For example, I myself spend lot of time checking latest startup news and advice. I also go through many leads on web development jobs.</p> -->
+    <p>Wouldn't it be nice if all that time spent going through different websites on the internet was used to help someone with little less knowledge of those things. It might be because they don't have time or don't know where to look.</p>
+    <p>Here you can become wingman for few in specific areas of your expertise and get them introduced to latest trends or leads in that field.</p>
+    <p>Wingman is a metaphor drawn from dating (actually airforce originally) where someone introduces you to pretty lady. Same applies here. Your job is to get people you are helping get introduced to resources in that field.</p>
+    <p>Finally remember to pick small number of fields to become wingman or get help. Also, this is place to help small number of people but help them genuinelly.</p>
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn btn-primary" data-dismiss="modal">Ok, Understood</a>
+  </div>
+</div>
+
+<script>
+  <% if @person.new_record? || true %>
+    $('#myModal').modal({
+      keyboard: false
+    })
+  <% end %>
+</script>
+
 <% @nav_id = "nav-preferences" %>

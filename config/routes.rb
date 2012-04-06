@@ -4,7 +4,12 @@ Wingman::Application.routes.draw do
 
   resources :items
 
-  resources :people
+  resources :people do
+    collection do
+      get 'suggested'
+    end
+  end
+
   resources :wingmanships do
     member do
       get 'accept'
