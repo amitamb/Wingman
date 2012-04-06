@@ -1,6 +1,7 @@
 <div style="width:100%;">
     <%= link_to image_tag(item.sharer.image, :style => "width:50px;heiht:50px;"), item.sharer, :style => "float:left;" %>
     <div style="display:table-cell;float:left;margin-left:15px;">
+      <%= link_to item.sharer.name, item.sharer %><br />
       <span class="text"><%=raw Rinku.auto_link(item.text || "", mode=:all, link_attr=nil, skip_tags=nil) %></span><br />
       <ul class="shared-with">
         <% unless item.listeners.empty? %>
