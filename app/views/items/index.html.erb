@@ -13,11 +13,11 @@
     <h3>Your Shared Items</h3>
     <hr />
     <% unless current_person.items.empty? %>
-      <ul class="items">
+      <!-- <ul class="items"> -->
       <% current_person.items.order("created_at DESC").each do |i| %>
         <%= render i %>
       <% end %>
-      </ul>
+      <!-- </ul> -->
     <% else %>
       You have not shared anything. <a href="/">Start sharing</a>
     <% end %>

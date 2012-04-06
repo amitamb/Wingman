@@ -1,3 +1,19 @@
+<div style="width:100%;">
+    <%= link_to image_tag(item.sharer.image, :style => "width:50px;heiht:50px;"), item.sharer, :style => "float:left;" %>
+    <div style="display:table-cell;float:left;margin-left:15px;">
+      <span class="text"><%=raw Rinku.auto_link(item.text || "", mode=:all, link_attr=nil, skip_tags=nil) %></span><br />
+      <ul class="shared-with">
+        <% item.listeners.each do |l| %>
+          <li><%= link_to image_tag(l.image, :class => "image-mini"), l %></li>
+        <% end %>
+      </ul>
+      <span  style="color:#999;font-size:11px;"><%= time_ago_in_words(item.created_at) + " ago" %> |</span><%= link_to 'Destroy', item, confirm: 'Are you sure?', method: :delete, class: "btn-mini", :style => "color:#999;" %>
+      <br />
+    </div>
+</div>
+<div class="clear"></div>
+<hr />
+<!--
 <li class="item-small">
   <span class="pull-right" style="text-align:right;">
     <span  style="color:#999;font-size:10px;"><%= time_ago_in_words(item.created_at) + " ago" %></span><br />
@@ -21,3 +37,4 @@
   </ul>
   <hr style="margin-bottom:0;" />
 </li>
+-->

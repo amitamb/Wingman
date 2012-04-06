@@ -13,8 +13,13 @@
   <div class="span6">
     <h3>Your Wingmen</h3>
     <hr />
-    <% current_person.wingmans.each do |p| %>
-      <%= render "/people/person_small", :person => p %>
+    <% unless current_person.wingmans.empty? %>
+      <% current_person.wingmans.each do |p| %>
+        <%= render "/people/person_small", :person => p %>
+      <% end %>
+    <% else %>
+      You don't have any wingman assigned.<br />
+      Meanwhile you can add others as your wingman <a href="/">here</a>.
     <% end %>
   </div>
 </div>

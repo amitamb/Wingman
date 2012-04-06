@@ -13,8 +13,13 @@
   <div class="span6">
     <h3>You are wingman for</h3>
     <hr />
-    <% current_person.inverse_wingmans.each do |p| %>
-      <%= render "/people/person_small", :person => p %>
+    <% unless current_person.inverse_wingmans.empty? %>
+      <% current_person.inverse_wingmans.each do |p| %>
+        <%= render "/people/person_small", :person => p %>
+      <% end %>
+    <% else %>
+      You are not wingman for anyone. Wait for requests from other.<br />
+      Meanwhile you can add others as your wingman.
     <% end %>
   </div>
 </div>

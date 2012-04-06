@@ -26,7 +26,7 @@
       <hr />
     <% end %>
     <% unless current_person.suggested_wingmans.empty? %>
-      <h3>Start adding few wingmen</h3>
+      <h3>Start adding few wingmen</h3><br />
       <% current_person.suggested_wingmans.limit(10).each do |p| %>
         <%= render "/people/person_small", :person => p %>
         <hr />
