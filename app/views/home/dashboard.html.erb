@@ -32,5 +32,15 @@
         <hr />
       <% end %>
     <% end %>
+    <% unless Item.all.empty? %>
+      <!-- <ul class="items"> -->
+      <h3>Recently Shared Items</h3><br />
+      <% Item.order("created_at DESC").each do |i| %>
+        <%= render i %>
+      <% end %>
+      <!-- </ul> -->
+    <% else %>
+      You have not shared anything. <a href="/">Start sharing</a>
+    <% end %>
   </div>
 </div>

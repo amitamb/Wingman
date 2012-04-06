@@ -3,8 +3,12 @@
     <div style="display:table-cell;float:left;margin-left:15px;">
       <span class="text"><%=raw Rinku.auto_link(item.text || "", mode=:all, link_attr=nil, skip_tags=nil) %></span><br />
       <ul class="shared-with">
-        <% item.listeners.each do |l| %>
-          <li><%= link_to image_tag(l.image, :class => "image-mini"), l %></li>
+        <% unless item.listeners.empty? %>
+          <% item.listeners.each do |l| %>
+            <li><%= link_to image_tag(l.image, :class => "image-mini"), l %></li>
+          <% end %>
+        <% else %>
+          <i>Not shared with anyone</i>
         <% end %>
       </ul>
       <span  style="color:#999;font-size:11px;"><%= time_ago_in_words(item.created_at) + " ago" %> |</span><%= link_to 'Destroy', item, confirm: 'Are you sure?', method: :delete, class: "btn-mini", :style => "color:#999;" %>

@@ -1,7 +1,7 @@
 <%= semantic_form_for @person do |f| %>
   <%= f.inputs do %>
     <%= f.input :short_desc, :label => "Short Description", :hint => "Example: Ruby on Rails expert and startup enthusiast" %>
-    <%= f.input :desc, :input_html => { :rows => "4" }, :label => "Detailed Description" %>
+    <%= f.input :desc, :input_html => { :rows => "4" }, :label => "Detailed Description", :input_html => { :placeholder => "Write how you can help by becoming a wingman?" } %>
     <%= f.input :location, :label => "Location", :hint => "Example: Pune, India" %>
     <%= f.input :know_list, :label => "You want to be wingman for (Help others)", :as => :check_boxes, :collection => ActsAsTaggableOn::Tag.all.collect { |t| t.name }, :input_html => { :class => "tag_input" }, :hint => "These are the topics you keep track of online. And want to help others with the knowledge you gain." %>
     <%= f.input :need_list, :label => "You want wingman for (Get help)", :as => :check_boxes, :collection => ActsAsTaggableOn::Tag.all.collect { |t| t.name }, :input_html => { :class => "tag_input" }, :hint => "These topics are those one which you want to know more. You will get wingmen for these topics." %>
