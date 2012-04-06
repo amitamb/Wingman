@@ -90,5 +90,34 @@ $(function(){
     //e.preventDefault();
     //return false;
   });
+  
+  $(".comment-new").find("form").submit(function(){
+    if ( !$(this).find("#comment_comment").val() ) { return false; }
+  });
+  
+  $(".comment-new").live("keyup", function(e){
+    if ( e.which == 13 ) {
+
+      (function(elem){
+        setTimeout( function(){
+          elem.val("");
+          elem.blur();
+        }, 10);
+      })($(e.target));
+      
+      
+
+      var $this = $(this);
+      var commentable_id = $this.parents(".comments").data("commentable-id");
+      var commentable_type = $this.parents(".comments").data("commentable-type");
+      //$.()
+      //alert( $this.parents(".comments").data("commentable-id") );
+    }
+  });
 
 });
+
+
+function getRandomId(range) {
+  return Math.floor(Math.random()*( range || 9999999999 ))
+}

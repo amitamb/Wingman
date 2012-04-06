@@ -1,6 +1,6 @@
 <div style="width:100%;">
     <%= link_to image_tag(item.sharer.image, :style => "width:50px;heiht:50px;"), item.sharer, :style => "float:left;" %>
-    <div style="display:table-cell;float:left;margin-left:15px;">
+    <div style="display:table-cell;float:left;margin-left:15px;width:390px;">
       <%= link_to item.sharer.name, item.sharer %><br />
       <span class="text"><%=raw Rinku.auto_link(item.text || "", mode=:all, link_attr=nil, skip_tags=nil) %></span><br />
       <ul class="shared-with">
@@ -14,6 +14,15 @@
       </ul>
       <span  style="color:#999;font-size:11px;"><%= time_ago_in_words(item.created_at) + " ago" %> |</span><%= link_to 'Destroy', item, confirm: 'Are you sure?', method: :delete, class: "btn-mini", :style => "color:#999;" %>
       <br />
+      <div class="comments" style="margin-top:12px;" data-commentable-id="<%= item.id %>" data-commentable-id="<%= item.class.to_s %>" >
+        <% unless item.comments.empty? %>
+            <% item.comments.each do |comment| %>
+              <%= render comment %>
+            <% end %>
+            <div class="clear"></div>
+        <% end %>
+          <%= render "comments/new_comment", :commentable => item %>
+        </div>
     </div>
 </div>
 <div class="clear"></div>

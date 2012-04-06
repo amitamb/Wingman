@@ -34,5 +34,7 @@ class Person < ActiveRecord::Base
   def suggested_people
     Person.where(["id != ?", self.id])
   end
+  
+  has_many :comments
 
 end

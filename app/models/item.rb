@@ -6,5 +6,7 @@ class Item < ActiveRecord::Base
   
   has_many :sharages
   has_many :listeners, :through => :sharages, :source => :person
+  
+  acts_as_commentable
 
 end

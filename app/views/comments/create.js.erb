@@ -1,0 +1,1 @@
+$("#new_commentable_comment_<%= @comment.commentable.id %>").parents(".comments").find(".comment:last").before("<%= escape_javascript(render(@comment)) %>");

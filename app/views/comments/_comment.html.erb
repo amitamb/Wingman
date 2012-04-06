@@ -1,0 +1,10 @@
+<div id="comment_<%= comment.id %>" class="comment" style="padding:5px;background-color:#DFDFDF;width:80%;margin-bottom:1px;">
+  <!-- <%= comment.inspect %> -->
+  <%= link_to image_tag(comment.person.image, :style => "width:35px;heiht:35px;"), comment.person, :style => "float:left;" %>
+  <div class="comment-text" style="padding-left:10px;display:table-cell;">
+    <%= link_to comment.person.name, comment.person %><br />
+    <%= comment.comment %>
+    <%= link_to 'delete', comment, confirm: 'Are you sure?', method: :delete, remote: true, class: "btn-mini" if comment.person == current_person %>
+  </div>
+  <div class="clear"></div>
+</div>

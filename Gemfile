@@ -54,3 +54,6 @@ gem 'omniauth-google-oauth2'
 gem 'formtastic-bootstrap'
 
 gem 'rinku'
+
+
+gem 'acts_as_commentable'

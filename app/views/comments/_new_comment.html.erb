@@ -1,0 +1,9 @@
+<div id="new_commentable_comment_<%= commentable.id %>" class="comment comment-new" style="padding:5px;background-color:#DFDFDF;width:80%;" >
+  <%= semantic_form_for Comment.new, :remote => true do |f| %>
+    <%= f.inputs do %>
+      <input id="comment_comment" name="comment[comment]" type="text" style="padding:2px;margin:0;width:305px;" placeholder="Add comment.." />
+      <%= f.input :commentable_id, :value => commentable.id, :as => :hidden %>
+      <%= f.input :commentable_type, :value => commentable.class.to_s, :as => :hidden %>
+    <% end %>
+  <% end %>
+</div>
