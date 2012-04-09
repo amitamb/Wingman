@@ -8,7 +8,7 @@
     <div style="margin-top:7px;"><%= raw Rinku.auto_link(person.desc || "", mode=:all, link_attr=nil, skip_tags=nil) %></div>
     <div class="person-tags">
       <% person.know_list.each do |tag| %>
-        <span class="label"><%= tag %></span>
+        <%= link_to content_tag(:span, tag, :class => "label"), tag_path(tag) %> 
       <% end %>
     </div>
     <div class="clear"></div>

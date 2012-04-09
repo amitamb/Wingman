@@ -14,11 +14,20 @@
     </tr>
     <tr>
       <td class="attribute_name">Can help with:</td>
-      <td class="attribute_value"><%= person.know_list %></td>
+      <td class="attribute_value">
+        <% person.know_list.each do |tag| %>
+          <%= link_to content_tag(:span, tag, :class => "label"), tag_path(tag) %> 
+        <% end %>
+      </td>
+      
     </tr>
     <tr>
       <td class="attribute_name">Needs help with:</td>
-      <td class="attribute_value"><%= person.need_list %></td>
+      <td class="attribute_value">
+        <% person.need_list.each do |tag| %>
+          <%= link_to content_tag(:span, tag, :class => "label"), tag_path(tag) %> 
+        <% end %>
+      </td>
     </tr>
     <tr>
       <td class="attribute_name">Wingmen:</td>

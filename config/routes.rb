@@ -5,6 +5,8 @@ Wingman::Application.routes.draw do
   resources :sharages
 
   resources :items
+  
+  resources :tags
 
   resources :people do
     collection do

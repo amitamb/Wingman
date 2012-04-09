@@ -32,7 +32,7 @@
         <hr />
       <% end %>
     <% end %>
-    <% unless Item.all.empty? %>
+    <% unless Activity.all.empty? %>
       <h3>Recently Activity</h3><br />
       <% Activity.all.each do |activity| %>
         <%= render activity %>
