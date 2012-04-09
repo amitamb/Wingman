@@ -13,14 +13,8 @@
   <div class="span6">
     <h3>Item</h3>
     <hr />
-    <% unless current_person.items.empty? %>
-      <ul class="items">
-      <% current_person.items.each do |i| %>
-        <%= render i %>
-      <% end %>
-      </ul>
-    <% else %>
-      You have not shared anything. <a href="/">Start sharing</a>
-    <% end %>
+    <ul class="items">
+      <%= render @item %>
+    </ul>
   </div>
 </div>

@@ -6,7 +6,7 @@
       <ul class="shared-with">
         <% unless item.listeners.empty? %>
           <% item.listeners.each do |l| %>
-            <li><%= link_to image_tag(l.image, :class => "image-mini"), l %></li>
+            <li style="display:inline-block;"><%= link_to image_tag(l.image, :class => "image-mini"), l, :title => l.name %></li>
           <% end %>
         <% else %>
           <i>Not shared with anyone</i>
@@ -46,7 +46,7 @@
   <div class="clear"></div>
   <ul class="shared-with">
     <% item.listeners.each do |l| %>
-      <li><%= link_to image_tag(l.image, :class => "image-mini"), l %></li>
+      <li style="display:inline-block;"><%= link_to image_tag(l.image, :class => "image-mini"), l %></li>
     <% end %>
   </ul>
   <hr style="margin-bottom:0;" />

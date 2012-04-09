@@ -17,7 +17,7 @@ module ActivitiesHelper
        when Activity::WINGMAN_REQUEST_ACCEPTED then " accepted wingmanship request from "
        #when Activity::WINGMAN_REQUEST_CANCELED then " canceled wingmanship request to "
        #when Activity::WINGMAN_REQUEST_REJECTED then " rejected wingmanship request from "
-       when Activity::ITEM_SHARED then " shared item with "
+       when Activity::ITEM_SHARED then " shared " + link_to( "an item", activity.target ) + " with "
        #when Activity::ITEM_DELETED then " deleted an item "
        when Activity::COMMENT_CREATED then " commented on "
        else "Unknown"
@@ -36,7 +36,7 @@ module ActivitiesHelper
     
     
   
-    sent = start + middle + last + "."
+    sent = start.html_safe + middle.html_safe + last.html_safe + "."
     
     sent.html_safe
   end

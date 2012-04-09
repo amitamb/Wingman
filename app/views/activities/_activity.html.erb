@@ -1,7 +1,10 @@
 <div class="activity" style="width:100%;">
   <%= link_to image_tag(activity.person.image, :style => "width:50px;heiht:50px;"), activity.person, :style => "float:left;" %>
-  <div style="display:table-cell;padding-left:10px;">
+  <div style="display:table-cell;padding-left:10px;width:900px;">
     <%= activity_sentence(activity) %>
+    <div>
+      <span  style="color:#999;font-size:11px;"><%= time_ago_in_words(activity.created_at) + " ago" %></span>
+    </div>
   </div>
 </div>
 <div class="clear"></div>
