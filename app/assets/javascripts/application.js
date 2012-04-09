@@ -50,10 +50,14 @@ $(function(){
   if ( !localStorage["bookmarklet-install-hide"] ) {
     $(".bookmarklet-install").css({ display : "" });
   }
-  $("#bookmarklet").on("click mousedown", function(){ 
+  $("#bookmarklet").on("click", function(){ 
     localStorage["bookmarklet-install-hide"] = true;
     return false;
   });
+  $("#bookmarklet").on("mousedown", function(){ 
+    localStorage["bookmarklet-install-hide"] = true;
+  });
+
   $(".bookmarklet-install .close").click(function(){
     $(".bookmarklet-install").css({ display : "none" });
     localStorage["bookmarklet-install-hide"] = true;

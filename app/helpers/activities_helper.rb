@@ -17,7 +17,7 @@ module ActivitiesHelper
        when Activity::WINGMAN_REQUEST_ACCEPTED then " accepted wingmanship request from "
        #when Activity::WINGMAN_REQUEST_CANCELED then " canceled wingmanship request to "
        #when Activity::WINGMAN_REQUEST_REJECTED then " rejected wingmanship request from "
-       when Activity::ITEM_SHARED then " shared " + link_to( "an item", activity.target ) + " with "
+       when Activity::ITEM_SHARED then " shared " + link_to( "an item", activity.target ) +  ( activity.target.listeners.length == 0 ? "" : " with " )
        #when Activity::ITEM_DELETED then " deleted an item "
        when Activity::COMMENT_CREATED then " commented on "
        else "Unknown"
@@ -28,7 +28,7 @@ module ActivitiesHelper
        when Activity::WINGMAN_REQUEST_ACCEPTED then sentence_person_link(activity.target.person)
        #when Activity::WINGMAN_REQUEST_CANCELED then sentence_person_link(activity.secondary)
        #when Activity::WINGMAN_REQUEST_REJECTED then sentence_person_link(activity.target.person)
-       when Activity::ITEM_SHARED then activity.target.listeners.length == 1 ? sentence_person_link(activity.target.listeners.first) : pluralize(activity.target.listeners.length, "person")
+       when Activity::ITEM_SHARED then activity.target.listeners.length == 0 ? "" : ( activity.target.listeners.length == 1 ? sentence_person_link(activity.target.listeners.first) : pluralize(activity.target.listeners.length, "person") )
        #when Activity::ITEM_DELETED then " deleted the item "
        when Activity::COMMENT_CREATED then " commented on "
        else "Unknown"

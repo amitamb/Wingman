@@ -32,17 +32,13 @@ class Person < ActiveRecord::Base
   def suggested_wingmans
     wingman_ids = self.all_wingmanships.collect { |wsr| wsr.wingman_id }
     if wingman_ids.empty? then wingman_ids = [0] end
-    Person.where( [ "id NOT IN (?)" , wingman_ids] ).where("id != ?", self.id).order(" RANDOM() ")
+    Person.tagged_with(self.need_list).where( [ "people.id NOT IN (?)" , wingman_ids] ).where("people.id != ?", self.id).order(" RANDOM() ").select("DISTINCT people.id, people.*")
   end
 
   has_many :items, :foreign_key => :sharer_id # these are shared by person
 
   has_many :sharages
   has_many :shared_items, :through => :sharages, :source => :item # these are shared with person
-  
-  def suggested_people
-    Person.where(["id != ?", self.id])
-  end
   
   has_many :comments
   

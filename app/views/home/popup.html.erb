@@ -1,18 +1,36 @@
 <html>
 <head>
-  <%= javascript_include_tag "bootstrap.css" %>
-  <%= stylesheet_link_tag "bootstrap.css" %>
+  <title>Wingman</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag 'formtastic', 'my_formtastic_changes' %>
+  <!--[if IE 6]><%= stylesheet_link_tag 'formtastic_ie6' %><![endif]-->
+  <!--[if IE 7]><%= stylesheet_link_tag 'formtastic_ie7' %><![endif]-->
   <style>
-    
+    body {
+      overflow-x:hidden;
+    }
+    #new_item input[type="text"] {
+      width: 450px;
+      margin: 0;
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="row">
-      <div class="span8 offset2" style="line-height:300px;">
-        Show form to share the link <%= @url %>
+      <div class="span6 offset2" style="margin:40px;">
+        <h3>Share the item</h3><br />
+        <!-- Show form to share the link <%= @url %> -->
+        <%= render "share_form" %>
       </div>
     </div>
   </div>
 </body>
+<script>
+  $(function(){
+    $("#item_text").focus();
+  });
+</script>
 <html>

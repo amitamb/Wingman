@@ -18,7 +18,7 @@
     <% unless current_user.is_setup %>
       <div class="bookmarklet-install pull-right" style="display:none;">
         <a class="close">&times;</a>
-        <a id="bookmarklet" href="javascript:(function() { <%= 'window.open("http://localhost:3000/popup?url="+encodeURIComponent(window.location.href),"mywindow","menubar=1,resizable=1,width=1070,height=400,left=200,top=200");' %> })();" class="btn btn-primary pull-right">Wingman</a>
+        <a id="bookmarklet" href="javascript:(function() { <%= 'window.open("http://localhost:3000/popup?url="+encodeURIComponent(window.location.href),"mywindow","menubar=1,resizable=1,width=500,height=400,left=200,top=200");' %> })();" class="btn btn-primary pull-right">Wingman</a>
         <h3>Install Bookmarklet</h3>
         Drag following button to your bookmarks bar.<br />
         It will give you easy access to share links with Wingman.
@@ -37,16 +37,6 @@
       <% Activity.all.each do |activity| %>
         <%= render activity %>
       <% end %>
-    <% else %>
-      You have not shared anything. <a href="/">Start sharing</a>
-    <% end %>
-    <% unless Item.all.empty? %>
-      <!-- <ul class="items"> -->
-      <h3>Recently Shared Items</h3><br />
-      <% Item.order("created_at DESC").each do |i| %>
-        <%= render i %>
-      <% end %>
-      <!-- </ul> -->
     <% else %>
       You have not shared anything. <a href="/">Start sharing</a>
     <% end %>
