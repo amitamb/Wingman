@@ -1,11 +1,11 @@
 class Person < ActiveRecord::Base
 
   def self.current
-    Thread.current[:user].person
+    #Thread.current[:user].person
   end
 
   def self.current=(person)
-    Thread.current[:user] = person.user
+    #Thread.current[:user] = person.user
   end
 
   acts_as_taggable_on :knows, :needs
