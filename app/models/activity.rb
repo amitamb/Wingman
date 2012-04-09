@@ -5,7 +5,7 @@ class Activity < ActiveRecord::Base
 
   has_and_belongs_to_many :listeners, :class_name => "Person" # :foreign_key => person
 
-  default_scope joins("INNER JOIN activities_people ON activities_people.activity_id = activities.id").where("activities_people.person_id = ?", Person.current).order('activities.created_at DESC').limit(10)
+  default_scope lambda { joins("INNER JOIN activities_people ON activities_people.activity_id = activities.id").where("activities_people.person_id = ?", Person.current).order('activities.created_at DESC').limit(10) }
 
   # User sent wingmanship request to wingmanship.wingman  
   WINGMAN_REQUEST_CREATED = 1 #target —> model wingmanship
