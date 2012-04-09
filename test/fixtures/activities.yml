@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  person: 
+  activity_type: 
+  target_id: 
+  target_type: MyString
+
+two:
+  person: 
+  activity_type: 
+  target_id: 
+  target_type: MyString

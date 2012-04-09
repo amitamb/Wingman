@@ -1,0 +1,8 @@
+<div class="activity" style="width:100%;">
+  <%= link_to image_tag(activity.person.image, :style => "width:50px;heiht:50px;"), activity.person, :style => "float:left;" %>
+  <div style="display:table-cell;padding-left:10px;">
+    <%= activity_sentence(activity) %>
+  </div>
+</div>
+<div class="clear"></div>
+<hr />

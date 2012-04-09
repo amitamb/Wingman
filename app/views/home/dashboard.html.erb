@@ -33,6 +33,14 @@
       <% end %>
     <% end %>
     <% unless Item.all.empty? %>
+      <h3>Recently Activity</h3><br />
+      <% Activity.all.each do |activity| %>
+        <%= render activity %>
+      <% end %>
+    <% else %>
+      You have not shared anything. <a href="/">Start sharing</a>
+    <% end %>
+    <% unless Item.all.empty? %>
       <!-- <ul class="items"> -->
       <h3>Recently Shared Items</h3><br />
       <% Item.order("created_at DESC").each do |i| %>

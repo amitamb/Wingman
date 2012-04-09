@@ -5,9 +5,13 @@ class Wingmanship < ActiveRecord::Base
   def approved?
     self.wingman_approved == true
   end
-  
+
   def approve!
     self.wingman_approved = true
+    WingmanshipObserver.approved(self)
     self.save!
   end
+
+  has_many :activities, :as => :target
+
 end

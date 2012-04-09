@@ -11,7 +11,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120406111613) do
+ActiveRecord::Schema.define(:version => 20120406232129) do
+
+  create_table "activities", :force => true do |t|
+    t.integer  "person_id"
+    t.integer  "activity_type"
+    t.integer  "target_id"
+    t.string   "target_type"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "activities", ["person_id"], :name => "index_activities_on_person_id"
+  add_index "activities", ["target_id", "target_type"], :name => "index_activities_on_target_id_and_target_type"
+
+  create_table "activities_people", :force => true do |t|
+    t.integer "activity_id"
+    t.integer "person_id"
+  end
+
+  add_index "activities_people", ["activity_id"], :name => "index_activities_people_on_activity_id"
+  add_index "activities_people", ["person_id"], :name => "index_activities_people_on_person_id"
 
   create_table "comments", :force => true do |t|
     t.string   "title",            :limit => 50, :default => ""

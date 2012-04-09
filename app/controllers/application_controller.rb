@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
   
   helper_method :current_user, :current_person
 
+  before_filter :set_current_user
+
   private
 
   def current_user
@@ -11,5 +13,10 @@ class ApplicationController < ActionController::Base
   
   def current_person
     @current_person ||= current_user.person
+  end
+  
+  # try to use http://stackoverflow.com/questions/7896298/safety-of-thread-current-usage-in-rails
+  def set_current_user
+    User.current = current_user
   end
 end

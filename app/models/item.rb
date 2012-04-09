@@ -9,4 +9,6 @@ class Item < ActiveRecord::Base
   
   acts_as_commentable
 
+  has_many :activities, :as => :target
+
 end

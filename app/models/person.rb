@@ -1,4 +1,13 @@
 class Person < ActiveRecord::Base
+
+  def self.current
+    Thread.current[:user].person
+  end
+
+  def self.current=(person)
+    Thread.current[:user] = person.user
+  end
+
   acts_as_taggable_on :knows, :needs
 
   belongs_to :user
@@ -36,5 +45,7 @@ class Person < ActiveRecord::Base
   end
   
   has_many :comments
+  
+  has_and_belongs_to_many :activities
 
 end
