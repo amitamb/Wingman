@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '1.9.3'
+# ruby '1.9.3'
 
 gem 'rails', '3.2.1'
 
@@ -48,9 +48,9 @@ gem 'jquery-rails'
 
 gem 'acts-as-taggable-on', '~> 2.2.2'
 
-gem 'omniauth-twitter'
+# gem 'omniauth-twitter'
 gem 'omniauth-facebook'
-gem 'omniauth-google-oauth2'
+# gem 'omniauth-google-oauth2'
 
 #gem 'formtastic'
 gem 'formtastic-bootstrap'
